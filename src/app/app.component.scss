@@ -1,0 +1,10 @@
+.fill-space{
+    flex: 1 1 auto;
+  }
+  .mat-toolbar
+  {background: linear-gradient(to right, #283048, #859398);
+    & > a {
+      text-decoration: none;
+      color: white;
+    }
+  }

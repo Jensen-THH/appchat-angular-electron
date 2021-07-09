@@ -1,0 +1,42 @@
+<div class="container">
+ <!-- <button mat-button [routerLink]="['/chat']">Back to Groups</button> -->
+ <mat-list class="rooms">
+    <h3 mat-subheader>Gruops</h3>
+    <mat-list-item *ngFor="let group of groups | async"
+        [routerLink]="['/chat/',group.name,'messages']"
+    >
+
+        <mat-icon mat-list-icon> chat </mat-icon>
+        <!-- <mat-icon aria-hidden="true" aria-label="Example home icon">home</mat-icon> -->
+        <h4 mat-line>{{ group.name }}</h4>
+        <p mat-line>{{ group.description }}</p>
+    </mat-list-item>
+</mat-list>
+<div class="mat-card">
+
+    <h3 mat-subheader class="group">{{ group }}</h3>
+<mat-list>
+    <cdk-virtual-scroll-viewport itemSize="50"  class="example-viewport">
+<div  *cdkVirtualFor="let message of messages | async" class="example-item ">
+   <p> {{ message.text }}</p>
+</div>
+    </cdk-virtual-scroll-viewport>
+
+  <!-- <mat-list-item class="gradient-text" *ngFor="let message of messages | async">
+    {{ message.text }}
+  </mat-list-item> -->
+</mat-list>
+<div class="message-editor">
+  <mat-form-field class="message-editor-field">
+    <input 
+      [(ngModel)]="newMessage" 
+      matInput 
+      placeholder="Message the group" 
+      autocomplete="off" 
+      (keyup.enter)="send()"
+    />
+</mat-form-field>
+<button style="margin-left:20px ;" mat-raised-button color="primary" (click)="send()">Send</button>
+</div> 
+</div>
+</div>

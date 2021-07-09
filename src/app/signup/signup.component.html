@@ -1,0 +1,17 @@
+<div class="login-form-container">
+    <div class="login-form">
+      <h1>Sign up</h1>
+      <!-- <h2 class="error" *ngIf="error">Error: {{error}}</h2> -->
+      <mat-form-field class="login-field">
+        <input #signupField matInput placeholder="Email" autocapitalize="off">
+      </mat-form-field>
+      <mat-form-field class="login-field">
+        <input #passwordField type="password" matInput placeholder="Password" autocapitalize="off">
+      </mat-form-field>
+      <div class="login-actions">
+        <button mat-raised-button color="primary" (click)="signup(signupField.value, passwordField.value)">Sign up</button>
+      </div>
+      
+    </div>
+  </div>
+

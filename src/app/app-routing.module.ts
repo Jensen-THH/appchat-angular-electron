@@ -1,7 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { LoginComponent } from './login/login.component';
+import { ChatComponent } from './chat/chat.component';
+// import { MessagesComponent } from './messages/messages.component';
+import { MessagesComponent } from './messages/messages.component';
+const routes: Routes = [
+{
+  path: 'login',
+  component: LoginComponent
+},
+{
+  path: 'chat',
+  component: ChatComponent
+},
+{
+  path: 'chat/:group/messages',
+  component: MessagesComponent
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

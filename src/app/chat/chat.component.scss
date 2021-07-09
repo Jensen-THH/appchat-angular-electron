@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+.mat-list-item{
+    cursor: pointer;
+    &:hover h4{
+        text-decoration: underline;
+    }
+}
