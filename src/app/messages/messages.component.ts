@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import  { AppComponent } from '../app.component'
 
 @Component({
   selector: 'app-messages',
@@ -15,6 +16,7 @@ export class MessagesComponent implements OnInit {
   newMessage = '';
   groups! : Observable<any>;
   constructor(
+    private name:AppComponent,
     private route: ActivatedRoute,
     private firebase: AngularFireDatabase
   ) { }
@@ -35,7 +37,7 @@ export class MessagesComponent implements OnInit {
       const messages = this.firebase.list('messages');
       messages.push ({
         group: this.group,
-        text: this.newMessage
+        text: this.name.currentUsers.displayName + ' : '+ this.newMessage
       });
       this.newMessage = '';
     }

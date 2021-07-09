@@ -18,7 +18,7 @@
 <mat-list>
     <cdk-virtual-scroll-viewport itemSize="50"  class="example-viewport">
 <div  *cdkVirtualFor="let message of messages | async" class="example-item ">
-   <p> {{ message.text }}</p>
+   <p>{{ message.text }}</p>
 </div>
     </cdk-virtual-scroll-viewport>
 
@@ -29,7 +29,7 @@
 <div class="message-editor">
   <mat-form-field class="message-editor-field">
     <input 
-      [(ngModel)]="newMessage" 
+      [(ngModel)]="newMessage"
       matInput 
       placeholder="Message the group" 
       autocomplete="off" 

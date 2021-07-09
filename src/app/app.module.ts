@@ -6,12 +6,11 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { LoginComponent } from './login/login.component';
+// import { LoginComponent } from './login/login.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ChatComponent } from './chat/chat.component';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
@@ -27,10 +26,11 @@ import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SignupComponent } from './signup/signup.component';
+import { FirebaseService } from './services/firebase.service';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    // LoginComponent,
     ChatComponent,
     MessagesComponent,
     SignupComponent
@@ -58,7 +58,7 @@ import { SignupComponent } from './signup/signup.component';
     MatCardModule,
     ScrollingModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

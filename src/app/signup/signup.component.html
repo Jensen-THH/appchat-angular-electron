@@ -1,4 +1,4 @@
-<div class="login-form-container">
+<div  *ngIf="!islogin" class="login-form-container">
     <div class="login-form">
       <h1>Sign up</h1>
       <!-- <h2 class="error" *ngIf="error">Error: {{error}}</h2> -->
@@ -14,4 +14,5 @@
       
     </div>
   </div>
+
 

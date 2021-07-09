@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-@Component({
+
+@Component({ 
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
@@ -18,7 +19,7 @@ async signup(username: string, password: string) {
       res=>{
         this.islogin = true
         localStorage.setItem("user",JSON.stringify(res.user))
-        this.router.navigate(['login']);
+        this.router.navigate(['/']);
       }
     );
   }
