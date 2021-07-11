@@ -7,6 +7,7 @@
     & > a {
       text-decoration: none;
       color: white;
+      cursor: pointer;
     }
   }
 
@@ -139,15 +140,15 @@
 .container .section-one .social-links .twitter {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  // display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  right: -12rem;
+  // position: absolute;
+  margin: auto;
 }
 
 .container .section-one .social-links .twitter span {
@@ -172,7 +173,9 @@
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #ffffff;
-  box-shadow:-0.2rem 0px #787a82bd;
+  -webkit-box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
+box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
 }
 
 .container .section-one .social-links .twitter .icon img {

@@ -1,15 +1,14 @@
+<mat-progress-bar mode="buffer"></mat-progress-bar>
 <mat-toolbar color="primary">
-  <a [routerLink]="'/'">Electron Chat</a>
+  <a>Electron Chat</a>
   <span class="fill-space"></span>
 
   <a *ngIf="!show" (click)="handleLogout()">Logout</a>
-  <a *ngIf="show" (click)="handleLogin()">Login</a>
-  <a  (click)="handleSignup()">Sign up</a>
+  <a  *ngIf="show" (click)="handleLogin()">Login</a>
+  <a  style="margin:0 10px" *ngIf="show" (click)="handleSignup()">Sign up</a>
   <img style="height: 100%; border-radius: 50%;margin: 0 10px;" :src="{{currentUsers.photoURL}}" alt="">
-  <a href="#"> {{currentUsers.displayName}} </a>
+  <a *ngIf="currentUsers.displayName"> {{currentUsers.displayName}} </a>
 </mat-toolbar>
-
-
 
 <!-- User NOT logged in -->
 
@@ -54,17 +53,17 @@
 <div class="container" *ngIf="!isSignedIn">
   <div class="section-one">
     <div class="social-links">
-      <div class="facebook">
+      <!-- <div class="facebook">
         <span> LOGIN WITH FACEBOOk </span>
         <div class="icon">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="" />
         </div>
-      </div>
+      </div> -->
       <div class="twitter" (click)="googleLogin()" >
         <div class="icon">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/480px-Google_%22G%22_Logo.svg.png" alt="" srcset="" />
         </div>
-        <span> LOGIN WITH GOOGLE </span>
+        
       </div>
     </div>
     <div class="main-form">
@@ -88,24 +87,25 @@
 <div class="container" *ngIf="isSignedUp">
     <div class="section-one">
       <div class="social-links">
-        <div class="facebook">
+        <!-- <div class="facebook">
           <span> LOGIN WITH FACEBOOk </span>
           <div class="icon">
             <img src="./assets/facebookLogo.svg" alt="" />
           </div>
-        </div>
-        <div class="twitter">
+        </div> -->
+        <div class="twitter"  (click)="googleLogin()">
           <div class="icon">
-            <img src="./assets/twitterLogo.svg" alt="" srcset="" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/480px-Google_%22G%22_Logo.svg.png" alt="" srcset="" />
           </div>
-          <span> LOGIN WITH TWITTER </span>
+          
         </div>
       </div>
       <div class="main-form">
         <input type="email" #email name="email" placeholder="Email" />
+          
         <input type="password" #password name="password" placeholder="Password" />
         <pre class="error" *ngIf="error">Error: {{error}}</pre>
-        <button (click)="onSignup(email.value, password.value)">Create account</button>
+        <button mat-stroked-button (click)="onSignup(email.value, password.value)">Create account</button>
       </div>
 
       

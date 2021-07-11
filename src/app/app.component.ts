@@ -6,24 +6,35 @@ import firebase from 'firebase/app';
 import { User } from './user.model';
 import { Observable, of } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
+import {MatSnackBar} from '@angular/material/snack-bar';
+// import {FlatTreeControl} from '@angular/cdk/tree';
+// import {FormControl, Validators} from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit{
   title = 'firebase-angular-auth';
-  isSignedIn = true
+  isSignedIn = false
   isSignedUp = false
   error=""
   error2=""
   show=true
+  durationInSeconds=4
   currentUsers={displayName:'',photoURL:''}
   user$!: Observable<User>
-  constructor(public afs : AngularFirestore,public firebaseService : FirebaseService, public router: Router,private firebaseAuth: AngularFireAuth){}
+  
+  // emailFormControl = new FormControl('', [
+  //   Validators.required,
+  //   Validators.email,
+  // ]);
+
+  constructor(private _snackBar: MatSnackBar,public afs : AngularFirestore,public firebaseService : FirebaseService, public router: Router,private firebaseAuth: AngularFireAuth){}
   ngOnInit(){
     if(localStorage.getItem('user')!== null)
-    this.isSignedIn= true
+    this.isSignedIn= false
     else
     this.isSignedIn = false
   }
@@ -37,6 +48,14 @@ export class AppComponent implements OnInit{
                 this.error2 =''
                 localStorage.setItem('user',JSON.stringify(res.user))
                 this.router.navigate(['chat']);
+                var currentUser = JSON.parse(localStorage.getItem('user')!);
+              console.log(currentUser.displayName)
+              if (currentUser.displayName == null){
+                var arr = currentUser.email.split("@")
+                currentUser.displayName = arr[0]
+              }
+              this.currentUsers = currentUser
+              return this.updateUserData(currentUser);
         },
         err => {
           this.error2 = err.message || 'Unknown error'
@@ -52,7 +71,14 @@ export class AppComponent implements OnInit{
                 this.isSignedUp = false
                 this.error2 =''
                 localStorage.setItem('user',JSON.stringify(res.user))
+              
+                  // this._snackBar.open('message','action')
+                  this._snackBar.openFromComponent(notificationComponent, {
+                    duration: this.durationInSeconds * 1000,
+                  });
                 this.router.navigate(['/']);
+               
+               
         },
         err => {
           this.error = err.message || 'Unknown error'
@@ -65,12 +91,10 @@ export class AppComponent implements OnInit{
     this.isSignedIn = true
     this.show=false
     localStorage.setItem('user',JSON.stringify(credential.user))
-    var x = localStorage.getItem('user')
     this.router.navigate(['chat']);
     var currentUser = JSON.parse(localStorage.getItem('user')!);
     console.log(currentUser)
     this.currentUsers = currentUser
-    console.log(typeof(this.currentUsers))
     return this.updateUserData(currentUser);
 
   }
@@ -108,3 +132,14 @@ export class AppComponent implements OnInit{
   }
 
 }
+
+@Component({
+  selector: 'snack-bar-component-example-snack',
+  templateUrl: 'snack-bar-component-example-snack.html',
+  styles: [`
+    .example-pizza-party {
+      color: hotpink;
+    }
+  `],
+})
+export class notificationComponent {}

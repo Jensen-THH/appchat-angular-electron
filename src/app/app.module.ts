@@ -27,6 +27,10 @@ import {MatCardModule} from '@angular/material/card';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SignupComponent } from './signup/signup.component';
 import { FirebaseService } from './services/firebase.service';
+
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTreeModule} from '@angular/material/tree';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +60,11 @@ import { FirebaseService } from './services/firebase.service';
     MatListModule,
     FormsModule,
     MatCardModule,
-    ScrollingModule
+    ScrollingModule,
+
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatTreeModule,
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

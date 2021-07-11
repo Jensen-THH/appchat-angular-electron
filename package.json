@@ -8,7 +8,9 @@
     "start": "electron .",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:windows": "electron-builder --win --dir",
+    "dist:windows": "electron-builder --win"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +27,7 @@
     "@angular/router": "~12.1.1",
     "angularfire2": "^5.4.2",
     "firebase": "^8.7.1",
+    "fs.promises": "^0.1.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -36,6 +39,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "electron": "^13.1.6",
+    "electron-builder": "^22.11.7",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

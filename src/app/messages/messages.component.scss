@@ -15,9 +15,7 @@ h4{
   font-size: 25px;
 
 }
-  &:hover h4 {
-    text-decoration: underline;
-  }
+
 }
 .container {
   padding: 0;
@@ -27,9 +25,14 @@ h4{
 //   display: flex;
   height: auto;
   .rooms {
-    position: fixed;
-    width: auto;
-    top: 10;
+    // position: fixed;
+    // width: auto;
+    // top:50%;
+    position: absolute;
+          left: 7%;
+          top: 50%;
+          transform: translate(-20%, -50%);
+    margin-left: 10px;
   }
   .mat-card {
     border-radius: 25px;
