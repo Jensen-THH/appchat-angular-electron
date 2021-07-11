@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 .mat-list-item{
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
     cursor: pointer;
     &:hover h4{
         text-decoration: underline;
