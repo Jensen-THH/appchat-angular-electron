@@ -1,45 +1,44 @@
-.fill-space{
-    flex: 1  auto ;
+.fill-space {
+  flex: 1 auto;
+}
+.mat-toolbar {
+  background: linear-gradient(to right, #283048, #859398);
+  & > a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
   }
-  .mat-toolbar
-  {
-    background: linear-gradient(to right, #283048, #859398);
-    & > a {
-      text-decoration: none;
-      color: white;
-      cursor: pointer;
-    }
-  }
+}
 
-  .login-form-container{
-    display: flex;
-    .login-form{
-      margin: auto;
-      min-width: 150px;
-      max-width: 500px;
+.login-form-container {
+  display: flex;
+  .login-form {
+    margin: auto;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    .login-field {
       width: 100%;
-      .login-field{
-        width: 100%;
-      }
-      .login-actions{
-        text-align: right;
-       }
+    }
+    .login-actions {
+      text-align: right;
     }
   }
-  .error{
-    margin-bottom: 10px;
-    color: red;
-    text-overflow: clip;
-  }
+}
+.error {
+  margin-bottom: 10px;
+  color: red;
+  text-overflow: clip;
+}
 
-  ////
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap");
+////
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap");
 * {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .all {
@@ -51,18 +50,17 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .container {
   height: 100%;
   width: 100%;
   margin: auto;
-
 }
 
 .container .section-one {
@@ -70,15 +68,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   height: 60%;
   border-bottom: 0.05rem #ffffff solid;
 }
@@ -98,11 +96,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: absolute;
   left: -10.5rem;
 }
@@ -125,11 +123,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -142,11 +140,11 @@
   display: -ms-flexbox;
   // display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   // position: absolute;
   margin: auto;
 }
@@ -167,15 +165,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background-color: #ffffff;
-  -webkit-box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
--moz-box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
-box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -4px 8px 24px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -4px 8px 24px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: -4px 8px 24px -6px rgba(0, 0, 0, 0.75);
 }
 
 .container .section-one .social-links .twitter .icon img {
@@ -187,15 +185,15 @@ box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .container .section-one .main-form button {
@@ -213,7 +211,8 @@ box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
 }
 
 .container .section-one .main-form button:hover {
-  background: #364336 radial-gradient(circle, transparent 1%, #5f645fb6 1%) center/15000%;
+  background: #364336 radial-gradient(circle, transparent 1%, #5f645fb6 1%)
+    center/15000%;
 }
 
 .container .section-one .main-form button:active {
@@ -229,11 +228,11 @@ box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   color: #ffffff;
   font-weight: bold;
   margin-bottom: 2rem;
@@ -251,11 +250,11 @@ box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .container .section-two button {
@@ -273,7 +272,8 @@ box-shadow: -4px 8px 24px -6px rgba(0,0,0,0.75);
 }
 
 .container .section-two button:hover {
-  background: #4e484a radial-gradient(circle, transparent 1%, #3f3031 1%) center/15000%;
+  background: #4e484a radial-gradient(circle, transparent 1%, #3f3031 1%)
+    center/15000%;
 }
 
 .container .section-two button:active {
@@ -354,3 +354,4 @@ input::placeholder {
   }
 }
 /*# sourceMappingURL=index.css.map */
+
