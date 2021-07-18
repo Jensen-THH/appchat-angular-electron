@@ -1,4 +1,7 @@
 {
+  "build": {
+    "icon": "logo2.png"
+  },
   "name": "chatapp",
   "version": "0.0.0",
   "main": "main.js",
