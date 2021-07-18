@@ -7,7 +7,7 @@
   <a  *ngIf="show" (click)="handleLogin()">Login</a>
   <a  style="margin:0 10px" *ngIf="show" (click)="handleSignup()">Sign up</a>
   <img style="height: 100%; border-radius: 50%;margin: 0 10px;" :src="{{currentUsers.photoURL}}" alt="">
-  <a *ngIf="currentUsers.displayName"> {{currentUsers.displayName}} </a>
+  <a *ngIf="currentUsers.displayName" style="text-transform: capitalize;"> {{currentUsers.displayName}} </a>
 </mat-toolbar>
 
 <!-- User NOT logged in -->
@@ -104,8 +104,9 @@
         <input type="email" #email name="email" placeholder="Email" />
           
         <input type="password" #password name="password" placeholder="Password" />
+        <input type="password" #repassword name="repassword" placeholder="Re-type Password" />
         <pre class="error" *ngIf="error">Error: {{error}}</pre>
-        <button mat-stroked-button (click)="onSignup(email.value, password.value)">Create account</button>
+        <button mat-stroked-button (click)="onSignup(email.value, password.value, repassword.value)">Create account</button>
       </div>
 
       

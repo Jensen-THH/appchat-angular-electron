@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
   error2=""
   show=true
   durationInSeconds=4
-  currentUsers={displayName:'',photoURL:''}
+  currentUsers={displayName:'',photoURL:'',uid:'',email:''}
   user$!: Observable<User>
   
   // emailFormControl = new FormControl('', [
@@ -49,12 +49,14 @@ export class AppComponent implements OnInit{
                 localStorage.setItem('user',JSON.stringify(res.user))
                 this.router.navigate(['chat']);
                 var currentUser = JSON.parse(localStorage.getItem('user')!);
-              console.log(currentUser.displayName)
-              if (currentUser.displayName == null){
-                var arr = currentUser.email.split("@")
-                currentUser.displayName = arr[0]
-              }
-              this.currentUsers = currentUser
+                if (currentUser.displayName == null){
+                  var arr = currentUser.email.split("@")
+                  currentUser.displayName = arr[0]
+                }
+                currentUser.uid = currentUser.uid
+                currentUser.email = currentUser.email
+                this.currentUsers = currentUser
+                console.log(this.currentUsers)  
               return this.updateUserData(currentUser);
         },
         err => {
@@ -63,27 +65,35 @@ export class AppComponent implements OnInit{
         )
   }
 
-  async onSignup(email:string,password:string){
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password).then(
-        res => {
-          console.log(res);
-                this.isSignedIn = false
-                this.isSignedUp = false
-                this.error2 =''
-                localStorage.setItem('user',JSON.stringify(res.user))
-              
-                  // this._snackBar.open('message','action')
-                  this._snackBar.openFromComponent(notificationComponent, {
-                    duration: this.durationInSeconds * 1000,
-                  });
-                this.router.navigate(['/']);
-               
-               
-        },
-        err => {
-          this.error = err.message || 'Unknown error'
-        }
-        )
+  async onSignup(email:string,password:string,repassword:string){
+    if (password === repassword){
+
+      await this.firebaseAuth.createUserWithEmailAndPassword(email, password).then(
+          res => {
+            console.log(res);
+                  this.isSignedIn = false
+                  this.isSignedUp = false
+                  this.error2 =''
+                  localStorage.setItem('user',JSON.stringify(res.user))
+                
+                    // this._snackBar.open('message','action')
+                    this._snackBar.openFromComponent(notificationComponent, {
+                      duration: this.durationInSeconds * 1000,
+                    });
+                  this.router.navigate(['/']);
+                 
+                 
+          },
+          err => {
+            this.error = err.message || 'Unknown error'
+          }
+          )
+    }
+    else{
+      this._snackBar.openFromComponent(notificationComponent2, {
+        duration: this.durationInSeconds * 1000,
+      });
+    }
   }
   async googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -122,7 +132,7 @@ export class AppComponent implements OnInit{
     this.firebaseService.logout()
     this.show = true
     this.isSignedIn = false
-    this.currentUsers={ displayName:'',photoURL:''}
+    this.currentUsers={ displayName:'',photoURL:'',uid:'',email:''}
     this.router.navigate(['/'])
   }
   handleSignup(){
@@ -143,3 +153,13 @@ export class AppComponent implements OnInit{
   `],
 })
 export class notificationComponent {}
+@Component({
+  selector: 'snack-bar-component-example-snack',
+  templateUrl: 'snack-bar-component-example-snack2.html',
+  styles: [`
+    .example-pizza-party {
+      color: red;
+    }
+  `],
+})
+export class notificationComponent2 {}

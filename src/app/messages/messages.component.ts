@@ -1,5 +1,5 @@
   
-import { Component, OnInit } from '@angular/core';
+import {  AfterViewChecked, ElementRef, ViewChild,Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
@@ -11,14 +11,16 @@ import  { AppComponent } from '../app.component'
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit {
+
   messages!: Observable<any>;
   group = '';
   newMessage = '';
   groups! : Observable<any>;
+  currentuid = this.name.currentUsers.uid;
   constructor(
-    private name:AppComponent,
-    private route: ActivatedRoute,
-    private firebase: AngularFireDatabase
+    public name:AppComponent,
+    public route: ActivatedRoute,
+    public firebase: AngularFireDatabase
   ) { }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -32,14 +34,24 @@ export class MessagesComponent implements OnInit {
       }
     });
   }
+
   send() {
+
+   var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = time+' '+date;
     if (this.newMessage) {
       const messages = this.firebase.list('messages');
       messages.push ({
         group: this.group,
-        text: this.name.currentUsers.displayName + ' : '+ this.newMessage
+        text: this.name.currentUsers.displayName + ' : '+ this.newMessage,
+        uid:this.name.currentUsers.uid,
+        time:dateTime,
+        email:this.name.currentUsers.email,
       });
       this.newMessage = '';
     }
+    
   }
 }

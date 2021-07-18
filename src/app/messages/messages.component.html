@@ -23,13 +23,18 @@
 
   <div class="mat-card">
 
-    <h3 mat-subheader class="group">{{ group }}</h3>
+    <h3 mat-subheader style="color: white;" class="group">{{ group }}</h3>
     <mat-list>
-      <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-        <div *cdkVirtualFor="let message of messages | async">
-          <div class="ftText">{{ message.text }}</div>
+      <div class="example-viewport" #scrollMe [scrollTop]="scrollMe.scrollHeight" >
+        <div  *ngFor="let message of messages | async" [ngClass]="{'right': message.uid == currentuid , 'left': message.uid != currentuid }">
+            <div class="text" matTooltip={{message.email}} matTooltipClass="classtooltip">
+              
+              <p style="text-transform:inherit;">{{ message.text }}</p>
+              <p style="font-size: 13px; color: gray;">{{ message.time }}</p>
+            </div>
+         
         </div>
-      </cdk-virtual-scroll-viewport>
+      </div>
 
       <!-- <mat-list-item class="gradient-text" *ngFor="let message of messages | async">
     {{ message.text }}

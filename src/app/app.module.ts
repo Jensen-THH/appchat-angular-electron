@@ -31,6 +31,8 @@ import { FirebaseService } from './services/firebase.service';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +67,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatProgressBarModule,
     MatSnackBarModule,
     MatTreeModule,
+    MatTooltipModule,
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

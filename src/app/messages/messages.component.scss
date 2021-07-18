@@ -2,7 +2,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 .example-viewport {
     height: 450px;
-    width: 100%;
+    width: 500px;
+    overflow-y: scroll;
   }
   
   .example-item {
@@ -20,6 +21,7 @@ h4{
 .container {
   padding: 0;
   margin-top: 10px;
+  margin-bottom: 10px;
 //   background: linear-gradient(to right, #fc5c7d, #6a82fb);
 //  background: linear-gradient(to right, #f12711, #f5af19);
 //   display: flex;
@@ -46,7 +48,7 @@ h4{
     border-radius: 25px;
     // box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
     box-shadow: -4px 7px 15px -4px rgba(0,0,0,0.75);
-    width: 70%;
+    width: 500px;
     height: 100%;
     // margin: auto;
     align-items: center;
@@ -73,36 +75,68 @@ h4{
     }
     .message-editor {
       // display: inline;
-      margin-top: 20px;
+      background-color: #f2f2f2;
+      margin-top: 10px;
       align-items: center;
-      justify-content: center;
-      margin:0 auto;
-      position: fixed;
       display: flex;
-      width: 68%;
-      bottom: 20;
-      text-align: center;
       padding: 0 10px;
+      border-radius: 0 0 25px 25px;
       input {
-        width: 70%;
+        width: 90%;
+        margin-bottom: 10px;
+        margin-top: 10px;
       }
       img{
         margin: 10px;
+        margin-bottom: 15px;
         cursor: pointer;
       }
     }
   }
 }
-.ftText {
-  width: 400px;
+.classtooltip{
+  font-size: 15px;
+  margin-top: -10px;
+}
+.left {
+  width: 300px;
+  float: left;
+  display: block;
+}
+.right {
+  float: right;
+  display: block;
+  width: 300px;
+}
+.right .text{
+  display: block;
+  float: right ;
+  height: auto;
+  padding: 10px;
+  word-wrap: break-word;
+  color: rgb(0, 0, 0);
+  background-color: #e5e5be;
+
+  font-size: 20px;
+  margin: 20px;
+  border: 1px solid #4d4c4d;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
+}
+.left .text{
+  display: block;
+  float: left ;
   height: auto;
   padding: 10px;
   word-wrap: break-word;
   color: rgb(0, 0, 0);
   font-size: 20px;
   margin: 20px;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid #4d4c4d;
+  background-color: rgb(208, 208, 211);
+
+  border: 1px solid #2e2e2e;
   border-radius: 10px 10px 10px 10px;
   -webkit-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
@@ -118,9 +152,9 @@ input, textarea {
   background: #FFFFFF;
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
   border-radius: 25px 25px 25px 25px;
-  -webkit-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
+//   -webkit-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
+// -moz-box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
+// box-shadow: 10px 10px 8px -8px rgba(0,0,0,0.75);
 }
 
 textarea {
@@ -146,4 +180,23 @@ button, input[type="submit"] {
   border: 0;
   font-size: 14px;
   color: #FFFFFF;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 25px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
