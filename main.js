@@ -1,6 +1,7 @@
-const {app,Menu, BrowserWindow,} = require('electron');
+const {app,Menu, BrowserWindow,nativeImage} = require('electron');
 function createWindow() {
  const win = new BrowserWindow({width: 800, height: 715,
+    icon: nativeImage.createFromPath('./logo2.png'),
     webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
@@ -15,8 +16,17 @@ function createWindow() {
 // win.webContents.setUserAgent(win.webContents.getUserAgent() + "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36");
 const menu = Menu.buildFromTemplate([]);
 Menu.setApplicationMenu(menu);
-    win.loadURL(`http://localhost:4200`,{userAgent: 'Edge'});
-
+    // win.loadURL(`file://dist/chatapp/index.html`,{userAgent: 'Edge'});
+    // win.loadFile('./dist/chatapp/index.html')
+    win.loadFile('./angular/index.html')
+    // win.loadURL(
+    //     url.format({
+    //       pathname: path.join(__dirname, `index.html`),
+    //       protocol: "file:",
+    //       slashes: true
+    //     })
+    //   );
+    // win.loadURL('./dist/index.html')
 }
 
 app.whenReady().then(() => {
